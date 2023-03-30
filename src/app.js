@@ -51,6 +51,19 @@ app.put('/livros/:id', (req, res) => {
     res.json(livros)
 })
 
+// -----------------------------------------------------
+    // DELETE
+    app.delete('/livros/:id', (req, res) => { 
+        let {id} = req.params // atribuição via desestruturação
+        let index = buscaLivro(id) 
+        //apagando a posicao 
+        livros.splice(index, 1) // posicao , quantidade de elementos
+        res.send(`Livro ${id} removido com Sucesso!`)
+    })
+
+// -----------------------------------------------------
+
+// Funções
     function buscaLivro(id) { 
 
         return livros.findIndex(livro => livro.id == id)
