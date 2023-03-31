@@ -4,7 +4,9 @@ import livros from "./livrosRoutes.js"
 
 const routes = (app) => { 
     app.route('/').get((req, res) => { 
-        res.status(200).send({titulo:'Curso de Node 2'})
+        // res.status(200).send({titulo:'Bem Vindo a MINI-API'}) //  > Aparece o titulo em formato JSON
+        res.status(200).send('Bem Vindo a MINI API')
+
     })
 
     app.use(
