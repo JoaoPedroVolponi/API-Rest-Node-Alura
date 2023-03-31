@@ -14,4 +14,7 @@ router
     // PUT
     .put('/livros/:id', LivrosController.atualizarLivro)
 
+    // DELETE
+    .delete('/livros/:id', LivrosController.excluirLivro)
+
     export default router;
