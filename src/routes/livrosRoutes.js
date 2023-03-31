@@ -7,7 +7,7 @@ const router = express.Router()
 router
     // GET
     .get('/livros', LivrosController.listarLivros)
- 
+    .get('/livros/:id', LivrosController.listarLivrosPorID)
     // POST
     .post('/livros', LivrosController.cadastrarLivro)
 

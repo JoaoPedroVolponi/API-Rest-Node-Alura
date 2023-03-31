@@ -3,12 +3,28 @@ import livros from "../models/Livro.js";
 
 class LivrosController { 
 
+    // GET
     static listarLivros = (req, res) => { 
         livros.find((err, livros) => { 
             res.status(200).json(livros)
     })
 }
 
+    // GET por ID
+    static listarLivrosPorID = (req, res) => { 
+        const id = req.params.id;
+
+        livros.findById(id, (err, livros) => { 
+            if(err){
+                res.status(400).send({message: `${err.message} - ID do livro não localizado`})    // 400 erro de usuário
+            } else{ 
+                res.status(200).send(livros);
+            }
+        })
+    }
+
+
+    // POST
     static cadastrarLivro = (req, res) => { 
         let livro = new livros(req.body);
 
