@@ -16,4 +16,48 @@ app.use(express.json())
 
 routes(app);
 
+// const livros = [ 
+//     { id: 1, 'titulo': 'Senhor dos Aneis ' }, 
+//     { id: 2, 'titulo': ' O Hobiit'},
+// ]
+
+// Rotas 200 - Ok
+
+// METODOS
+
+//     //Buscando livros por ID
+// app.get('/livros/:id', (req, res) => { 
+//     let index = buscaLivro(req.params.id) // Busca do index
+//     res.json(livros[index])  // retorna apenas a posição do index
+// })
+
+
+// // -----------------------------------------------------
+//     // PUT
+//         // Alterando o nome do livro
+// app.put('/livros/:id', (req, res) => { 
+//     let index = buscaLivro(req.params.id) 
+//         // posicao do livro no array = novo titulo vindo no corpo da requisicao
+//     livros[index].titulo = req.body.titulo 
+//     res.json(livros)
+// })
+
+// // -----------------------------------------------------
+//     // DELETE
+//     app.delete('/livros/:id', (req, res) => { 
+//         let {id} = req.params // atribuição via desestruturação
+//         let index = buscaLivro(id) 
+//         //apagando a posicao 
+//         livros.splice(index, 1) // posicao , quantidade de elementos
+//         res.send(`Livro ${id} removido com Sucesso!`)
+//     })
+
+// // -----------------------------------------------------
+
+// Funções
+    function buscaLivro(id) { 
+
+        return livros.findIndex(livro => livro.id == id)
+    }
+
 export default app
